@@ -10,6 +10,9 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    nickname: {
+      type: String,
+    },
     img : {
       type: String,
     },
@@ -25,13 +28,13 @@ const UserSchema = new mongoose.Schema(
     car : {
       type: Boolean,
     },
-    capacity: {
-      type: Number,
-    },
     vine : {
       type: String,
     },
     spirit : {
+      type: String,
+    },
+    secondDay: {
       type: String,
     },
   },

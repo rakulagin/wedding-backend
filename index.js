@@ -25,20 +25,26 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
+app.get('/', (req,res) => {
+  // return 'okk'
+  res.send('rree')
+})
+
 //для занесения в БД
 app.post('/auth/register', async (req, res) => {
   try {
     const doc = new UserModel({
       firstName: req.body.firstName,
       surName: req.body.surName,
+      nickname: req.body.nickname,
       img: req.body.img,
       accept: req.body.accept,
       pair: req.body.pair,
       place: req.body.place,
       car: req.body.car,
-      capacity: req.body.capacity,
       vine: req.body.vine,
       spirit: req.body.spirit,
+      secondDay: req.body.secondDay,
     })
 
     const user = await doc.save()
@@ -88,11 +94,12 @@ app.patch('/question/:id', async (req,res) => {
     },
       {
         accept: req.body.accept,
+        pair: req.body.pair,
         place: req.body.place,
         car: req.body.car,
-        capacity: req.body.capacity,
         vine: req.body.vine,
         spirit: req.body.spirit,
+        secondDay: req.body.secondDay,
       })
 
     res.json({
@@ -106,6 +113,7 @@ app.patch('/question/:id', async (req,res) => {
   }
 })
 
+//загрузка картинок
 app.post('/upload', upload.single('image'), (req,res)=>{
   res.json({
     url: `/uploads/${req.file.originalname}`
