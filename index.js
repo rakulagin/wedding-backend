@@ -88,13 +88,13 @@ app.post('/invite', async (req, res) => {
 app.patch('/question/:id', async (req,res) => {
   try {
     const userId = req.params.id
+    console.log(userId)
 
     await UserModel.updateOne({
       _id: userId,
     },
       {
         accept: req.body.accept,
-        pair: req.body.pair,
         place: req.body.place,
         car: req.body.car,
         vine: req.body.vine,
