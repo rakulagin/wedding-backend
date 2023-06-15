@@ -89,7 +89,7 @@ app.patch('/question/:id', async (req,res) => {
   try {
     const userId = req.params.id
 
-    await UserModel.updateOne({
+    const updatedUser = await UserModel.findByIdAndUpdate({
       _id: userId,
     },
       {
@@ -99,11 +99,14 @@ app.patch('/question/:id', async (req,res) => {
         vine: req.body.vine,
         spirit: req.body.spirit,
         secondDay: req.body.secondDay,
-      })
+      },
+      {new: true}
+    )
 
-    res.json({
-      success: true
-    })
+    // res.json({
+    //   success: true
+    // })
+    res.json(updatedUser)
   } catch (err) {
     console.log(err)
     res.status(500).json({
