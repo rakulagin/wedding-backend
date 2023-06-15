@@ -99,6 +99,7 @@ app.patch('/update/:id', async (req,res) => {
         vine: req.body.vine,
         spirit: req.body.spirit,
         secondDay: req.body.secondDay,
+        answered: req.body.answered,
       },
       {new: true}
     )
