@@ -17,10 +17,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
     },
     accept : {
-      type: Boolean,
+      type: String,
     },
     answered: {
-      type: Boolean,
+      type: String,
     },
     pair : {
       type: String,
