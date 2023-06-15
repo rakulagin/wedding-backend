@@ -39,6 +39,7 @@ app.post('/auth/register', async (req, res) => {
       nickname: req.body.nickname,
       img: req.body.img,
       accept: req.body.accept,
+      answered: req.body.answered,
       pair: req.body.pair,
       place: req.body.place,
       car: req.body.car,
