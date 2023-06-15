@@ -59,7 +59,7 @@ app.post('/auth/register', async (req, res) => {
 })
 
 //поиск пользователя
-app.post('/invite', async (req, res) => {
+app.post('/find', async (req, res) => {
   try {
     const user = await UserModel.findOne({
       firstName: req.body.firstName,
@@ -85,7 +85,7 @@ app.post('/invite', async (req, res) => {
 })
 
 //обновление данных пользователя
-app.patch('/question/:id', async (req,res) => {
+app.patch('/update/:id', async (req,res) => {
   try {
     const userId = req.params.id
 
