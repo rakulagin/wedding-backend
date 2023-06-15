@@ -19,6 +19,9 @@ const UserSchema = new mongoose.Schema(
     accept : {
       type: Boolean,
     },
+    answered: {
+      type: Boolean,
+    },
     pair : {
       type: String,
     },
