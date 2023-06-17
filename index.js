@@ -63,8 +63,8 @@ app.post('/auth/register', async (req, res) => {
 app.post('/find', async (req, res) => {
   try {
     const user = await UserModel.findOne({
-      firstName: req.body.firstName,
-      surName: req.body.surName
+      firstName: req.body.firstName.trim(),
+      surName: req.body.surName.trim()
     });
     if (!user) {
       // return res.status(404).json({
