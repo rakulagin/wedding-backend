@@ -62,10 +62,14 @@ app.post('/auth/register', async (req, res) => {
 //поиск пользователя
 app.post('/find', async (req, res) => {
   try {
+    const firstName = req.body.firstName.trim();
+    const surName = req.body.surName.trim();
+
     const user = await UserModel.findOne({
-      firstName: req.body.firstName.trim(),
-      surName: req.body.surName.trim()
+      firstName: { $regex: new RegExp('^' + firstName, 'i') },
+      surName: { $regex: new RegExp('^' + surName, 'i') }
     });
+
     if (!user) {
       // return res.status(404).json({
       //   message: 'Пользователь не найден',
