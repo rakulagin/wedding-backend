@@ -16,14 +16,29 @@ const UserSchema = new mongoose.Schema(
     img : {
       type: String,
     },
+    pair : {
+      type: String,
+    },
+    ourHistory : {
+      type: String,
+    },
+    side : {
+      type: Number,
+    },
+    company : {
+      type: Number,
+    },
+    weight : {
+      type: Number,
+    },
+    activity: {
+      type: Boolean
+    },
     accept : {
       type: String,
     },
     answered: {
       type: Boolean,
-    },
-    pair : {
-      type: String,
     },
     place : {
       type: String,

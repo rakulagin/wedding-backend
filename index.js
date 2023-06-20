@@ -25,22 +25,32 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-app.get('/', (req,res) => {
-  // return 'okk'
-  res.send('rree')
+//получаем всех пользователей
+app.get('/users', async(req, res) => {
+  try {
+    const users = await UserModel.find()
+    res.json(users)
+  } catch (err) {
+    res.json(err)
+  }
 })
 
 //для занесения в БД
-app.post('/auth/register', async (req, res) => {
+app.post('/register', async (req, res) => {
   try {
     const doc = new UserModel({
       firstName: req.body.firstName,
       surName: req.body.surName,
       nickname: req.body.nickname,
       img: req.body.img,
+      pair: req.body.pair,
+      ourHistory: req.body.ourHistory,
+      side: req.body.side,
+      company: req.body.company,
+      weight: req.body.weight,
+      activity: req.body.activity,
       accept: req.body.accept,
       answered: req.body.answered,
-      pair: req.body.pair,
       place: req.body.place,
       car: req.body.car,
       vine: req.body.vine,
@@ -90,7 +100,7 @@ app.post('/find', async (req, res) => {
 })
 
 //обновление данных пользователя
-app.patch('/update/:id', async (req,res) => {
+app.patch('/users/:id', async (req,res) => {
   try {
     const userId = req.params.id
 
@@ -127,18 +137,6 @@ app.post('/upload', upload.single('image'), (req,res)=>{
     url: `/uploads/${req.file.originalname}`
   })
 })
-
-//получаем всех пользователей
-app.get('/users', async(req, res) => {
-  try {
-    const users = await UserModel.find()
-    res.json(users)
-  } catch (err) {
-    res.json(err)
-  }
-})
-
-
 
 app.listen(4444, (err) => {
   if (err) {
