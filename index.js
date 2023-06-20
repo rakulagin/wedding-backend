@@ -109,12 +109,12 @@ app.patch('/users/:id', async (req,res) => {
     },
       {
         accept: req.body.accept,
+        answered: req.body.answered,
         place: req.body.place,
         car: req.body.car,
         vine: req.body.vine,
         spirit: req.body.spirit,
         secondDay: req.body.secondDay,
-        answered: req.body.answered,
       },
       {new: true}
     )
