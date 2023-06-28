@@ -76,8 +76,8 @@ app.post('/find', async (req, res) => {
     const surName = req.body.surName.trim();
 
     const user = await UserModel.findOne({
-      firstName: { $regex: new RegExp('^' + firstName, 'i') },
-      surName: { $regex: new RegExp('^' + surName, 'i') }
+      firstName: firstName,
+      surName: surName
     });
 
     if (!user) {
