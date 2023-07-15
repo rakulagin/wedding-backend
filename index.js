@@ -42,6 +42,7 @@ app.post('/register', async (req, res) => {
       firstName: req.body.firstName,
       surName: req.body.surName,
       nickname: req.body.nickname,
+      who: req.body.who,
       img: req.body.img,
       pair: req.body.pair,
       ourHistory: req.body.ourHistory,

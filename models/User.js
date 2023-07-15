@@ -13,6 +13,9 @@ const UserSchema = new mongoose.Schema(
     nickname: {
       type: String,
     },
+    who: {
+      type: String,
+    },
     img : {
       type: String,
     },
