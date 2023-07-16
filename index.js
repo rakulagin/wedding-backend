@@ -62,6 +62,7 @@ app.post('/register', async (req, res) => {
 
     const user = await doc.save()
 
+
     res.json(user)
   } catch (err) {
     console.log(err)
