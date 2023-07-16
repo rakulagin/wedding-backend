@@ -19,6 +19,9 @@ const UserSchema = new mongoose.Schema(
     img : {
       type: String,
     },
+    imgForWeddingHost : {
+      type: String,
+    },
     pair : {
       type: String,
     },

@@ -44,6 +44,7 @@ app.post('/register', async (req, res) => {
       nickname: req.body.nickname,
       who: req.body.who,
       img: req.body.img,
+      imgForWeddingHost: req.body.imgForWeddingHost,
       pair: req.body.pair,
       ourHistory: req.body.ourHistory,
       side: req.body.side,
@@ -71,7 +72,7 @@ app.post('/register', async (req, res) => {
 })
 
 //поиск пользователя
-app.post('/find', async (req, res) => {
+app.post('/user', async (req, res) => {
   try {
     const firstName = req.body.firstName.trim();
     const surName = req.body.surName.trim();
